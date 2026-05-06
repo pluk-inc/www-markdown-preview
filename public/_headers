@@ -1,0 +1,10 @@
+# RFC 8288 Link headers for agent discovery on the homepage.
+# https://www.rfc-editor.org/rfc/rfc8288
+# Served by Cloudflare Workers Static Assets.
+
+/
+  Link: </llms.txt>; rel="describedby"; type="text/plain; charset=utf-8"
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
+  Link: <https://github.com/pluk-inc/markdown-preview>; rel="help"
+  Link: <https://github.com/pluk-inc/markdown-preview/blob/main/LICENSE>; rel="license"
+  Link: <https://github.com/pluk-inc/markdown-preview/releases.atom>; rel="alternate"; type="application/atom+xml"; title="Releases"
