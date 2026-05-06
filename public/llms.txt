@@ -1,0 +1,12 @@
+# Markdown Preview
+
+> Native macOS app for reading Markdown files. Mac-native feel with Quick Look, document outline, and "Open With" handoff to your editor.
+
+The website at markdownpreview.app is the landing page and download portal for Markdown Preview, a macOS application distributed as a DMG via GitHub Releases.
+
+## Resources
+
+- [Source repository](https://github.com/pluk-inc/markdown-preview)
+- [Latest release (DMG download)](https://github.com/pluk-inc/markdown-preview/releases/latest/download/Markdown-Preview.dmg)
+- [All releases](https://github.com/pluk-inc/markdown-preview/releases)
+- [License (MIT)](https://github.com/pluk-inc/markdown-preview/blob/main/LICENSE)

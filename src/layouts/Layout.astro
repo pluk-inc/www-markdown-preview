@@ -11,6 +11,8 @@ const {
   description = "A native macOS app for reading Markdown files. Clean previews, document outline, Quick Look. Open source, MIT licensed.",
 } = Astro.props;
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
 // PostHog public project token. Safe to commit — `phc_*` keys are designed to
 // be exposed in client bundles, the same way Google Analytics IDs and Plausible
 // domains are. The actual tracking-data access lives behind your account.
@@ -30,9 +32,11 @@ const POSTHOG_HOST = "https://us.i.posthog.com";
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
 
