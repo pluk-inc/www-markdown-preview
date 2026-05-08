@@ -1,6 +1,6 @@
 # Markdown Preview
 
-Landing page for [Markdown Preview](https://github.com/pluk-inc/md-preview.app), a native macOS app for reading Markdown files. Lives at [md.markdown.app](https://md.markdown.app).
+Landing page for [Markdown Preview](https://github.com/pluk-inc/markdown-preview), a native macOS app for reading Markdown files. Lives at [markdownpreview.app](https://markdownpreview.app/).
 
 Built with Astro + Tailwind, deployed as static assets to Cloudflare Workers.
 
