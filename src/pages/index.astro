@@ -7,6 +7,7 @@ import FeatureCard from "../components/FeatureCard.astro";
 import appIcon from "../assets/app-icon.png";
 
 const repoUrl = "https://github.com/pluk-inc/markdown-preview";
+const siteUrl = "https://markdownpreview.app";
 // "Releases" footer link goes to the full listing.
 const releasesUrl = `${repoUrl}/releases`;
 // Direct DMG download — assumes every release uploads `Markdown-Preview.dmg`
@@ -24,6 +25,28 @@ const quickLookShot = shot("screenshots/quicklook@2x.png");
 const outlineShot = shot("screenshots/outline@2x.png");
 const openWithShot = shot("screenshots/open-with@2x.png");
 
+const softwareApplicationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Markdown Preview",
+  applicationCategory: "ProductivityApplication",
+  operatingSystem: "macOS 15 or later",
+  description:
+    "A native macOS app for reading Markdown files with clean previews, document outline, Quick Look, and Open With handoff.",
+  url: siteUrl,
+  downloadUrl,
+  codeRepository: repoUrl,
+  license: `${repoUrl}/blob/main/LICENSE`,
+  image: `${siteUrl}/screenshots/hero@2x.png`,
+  screenshot: `${siteUrl}/screenshots/hero@2x.png`,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    url: downloadUrl,
+  },
+};
+
 const editorTiles = [
   { name: "VS Code", bg: "#0078d4", letter: "V" },
   { name: "Cursor", bg: "#000000", letter: "C" },
@@ -37,7 +60,7 @@ const editorTiles = [
 ];
 ---
 
-<Layout>
+<Layout jsonLd={softwareApplicationJsonLd}>
   {/* ───────── Global nav ───────── */}
   <header id="site-header" class="sticky top-0 z-50 site-nav">
     <div class="mx-auto max-w-[1200px] px-6">
@@ -193,6 +216,39 @@ const editorTiles = [
     </div>
   </section>
 
+  {/* ───────── FAQ ───────── */}
+  <section class="bg-[var(--color-snow)]">
+    <div class="mx-auto max-w-[920px] px-6 py-28 sm:py-[112px]">
+      <h2 class="faq-title text-[var(--color-ink)]">Questions before you install.</h2>
+      <dl class="mt-14 faq-list">
+        <div class="faq-item">
+          <dt>What is Markdown Preview for?</dt>
+          <dd>
+            It is a reader for Markdown files on macOS. Open a file, browse the rendered document, jump through the outline, and hand off to your editor when you want to make changes.
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt>How is it different from Typora or Marked?</dt>
+          <dd>
+            Markdown Preview is focused on reading, Quick Look, and opening files from Finder. It is not trying to replace your editor; it sits beside VS Code, Cursor, Zed, Sublime, or whichever app you already use to write Markdown.
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt>Does it work with Finder previews?</dt>
+          <dd>
+            Yes. The bundled Quick Look extension renders Markdown directly from Finder, so pressing Space on a <span class="font-mono">.md</span> file shows the formatted document without opening an editor.
+          </dd>
+        </div>
+        <div class="faq-item">
+          <dt>Is it free?</dt>
+          <dd>
+            Yes. Markdown Preview is free, open source, and MIT licensed. Downloads are distributed as a DMG through GitHub Releases.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
   {/* ───────── Closing call ───────── */}
   <section class="bg-[var(--color-fog)]">
     <div class="mx-auto max-w-[820px] px-6 py-32 sm:py-[120px] text-center">
@@ -268,6 +324,44 @@ const editorTiles = [
     font-size: clamp(36px, 6.5vw, 56px);
     line-height: 1.07;
     letter-spacing: -0.9px;
+  }
+  .faq-title {
+    font-family: var(--font-sf-display);
+    font-weight: 600;
+    font-size: clamp(30px, 4.6vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.8px;
+  }
+  .faq-list {
+    border-top: 1px solid var(--color-silver-mist);
+  }
+  .faq-item {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.72fr) minmax(0, 1fr);
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-silver-mist);
+  }
+  .faq-item dt {
+    color: var(--color-ink);
+    font-family: var(--font-sf-display);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+  }
+  .faq-item dd {
+    color: var(--color-slate);
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: -0.1px;
+  }
+  @media (max-width: 720px) {
+    .faq-item {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 24px 0;
+    }
   }
 
   /* Small variant of the primary pill (used in the nav) */
