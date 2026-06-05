@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-const SITE = "https://mdpreview.app";
+const SITE = "https://md-preview.app";
 
 // Canonical paths. Add new pages here when they ship so the next build
 // regenerates sitemap.xml with them included.
