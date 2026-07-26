@@ -4,16 +4,15 @@ import path from "node:path";
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import LogoMarquee from "../components/LogoMarquee.astro";
+import SiteNav from "../components/SiteNav.astro";
 import appIcon from "../assets/app-icon.png";
-
-const repoUrl = "https://github.com/pluk-inc/markdown-preview";
-const siteUrl = "https://markdownpreview.app";
-// "Releases" footer link goes to the full listing.
-const releasesUrl = `${repoUrl}/releases`;
-// Direct DMG download — assumes every release uploads `Markdown-Preview.dmg`
-// (versionless filename). GitHub redirects this URL to the asset on the
-// release currently marked "latest".
-const downloadUrl = `${repoUrl}/releases/latest/download/Markdown-Preview.dmg`;
+import {
+  DOWNLOAD_URL as downloadUrl,
+  RELEASES_URL as releasesUrl,
+  REPO_URL as repoUrl,
+  SITE as siteUrl,
+} from "../consts";
 
 const publicDir = path.resolve("./public");
 const shot = (rel: string) =>
@@ -61,19 +60,7 @@ const editorTiles = [
 ---
 
 <Layout jsonLd={softwareApplicationJsonLd}>
-  {/* ───────── Global nav ───────── */}
-  <header id="site-header" class="sticky top-0 z-50 site-nav">
-    <div class="mx-auto max-w-[1200px] px-6">
-      <nav class="flex items-center justify-between h-11">
-        <a href="/" class="t-caption font-semibold text-[var(--color-ink)]">Markdown Preview</a>
-        <div class="flex items-center gap-6 t-caption text-[var(--color-ink)]">
-          <a href="#features" class="hidden sm:inline opacity-80 hover:opacity-100 transition-opacity">Features</a>
-          <a href={repoUrl} class="opacity-80 hover:opacity-100 transition-opacity">GitHub</a>
-          <a href={downloadUrl} class="btn-pill btn-pill--sm">Download</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <SiteNav />
 
   {/* ───────── Hero ───────── */}
   <section class="bg-[var(--color-fog)]">
@@ -111,6 +98,9 @@ const editorTiles = [
       </div>
     )}
   </section>
+
+  {/* ───────── Trusted by ───────── */}
+  <LogoMarquee />
 
   {/* ───────── Features ───────── */}
   <section id="features" class="bg-[var(--color-snow)]">
@@ -278,13 +268,6 @@ const editorTiles = [
 </Layout>
 
 <style>
-  /* Frosted nav */
-  .site-nav {
-    background-color: rgba(245, 245, 247, 0.72);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-  }
-
   /* App icon — fluid sizing + soft drop shadow */
   .app-icon {
     width: clamp(96px, 11vw, 128px);
@@ -363,9 +346,6 @@ const editorTiles = [
       padding: 24px 0;
     }
   }
-
-  /* Small variant of the primary pill (used in the nav) */
-  .btn-pill--sm { font-size: 12px; padding: 4px 12px; }
 
   /* Features carousel container */
   .features-scroller {
@@ -453,9 +433,6 @@ const editorTiles = [
     transition: background-color 0.18s ease;
   }
   .arrow-btn:hover { background: #d8d8dc; }
-
-  /* Footer hairline */
-  .site-footer { border-top: 1px solid var(--color-silver-mist); }
 </style>
 
 <script is:inline>

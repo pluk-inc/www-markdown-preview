@@ -6,6 +6,7 @@ The website at markdownpreview.app is the landing page and download portal for M
 
 ## Resources
 
+- [Who uses it](https://markdownpreview.app/companies) — companies and universities named on the GitHub profiles of stargazers (self-reported, not an endorsement)
 - [Source repository](https://github.com/pluk-inc/markdown-preview)
 - [Latest release (DMG download)](https://github.com/pluk-inc/markdown-preview/releases/latest/download/Markdown-Preview.dmg)
 - [All releases](https://github.com/pluk-inc/markdown-preview/releases)

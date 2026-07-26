@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "companies": "node scripts/fetch-companies.mjs",
     "astro": "astro"
   },
   "dependencies": {

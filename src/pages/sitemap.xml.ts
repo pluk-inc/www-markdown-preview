@@ -4,7 +4,7 @@ const SITE = "https://markdownpreview.app";
 
 // Canonical paths. Add new pages here when they ship so the next build
 // regenerates sitemap.xml with them included.
-const paths = ["/"];
+const paths = ["/", "/companies"];
 
 export const GET: APIRoute = () => {
   const lastmod = new Date().toISOString().slice(0, 10);
