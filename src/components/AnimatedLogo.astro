@@ -1,0 +1,58 @@
+---
+/**
+ * Animated app mark — the loupe icon from the macOS app, as authored in
+ * md-preview/docs/markdown-logo.svg. Inlined (not <img>) so the SMIL timeline
+ * can be paused for visitors who prefer reduced motion.
+ */
+import logoSvg from "../assets/markdown-logo.svg?raw";
+
+interface Props {
+  class?: string;
+  label?: string;
+}
+
+const { class: className = "", label = "Markdown Preview app icon" } = Astro.props;
+---
+
+<div
+  class:list={["md-logo", className]}
+  role="img"
+  aria-label={label}
+  set:html={logoSvg}
+/>
+
+<style>
+  /* Fluid sizing + soft drop shadow, matching the old static app icon. */
+  .md-logo {
+    /* The SVG is width/height 100% — the wrapper owns the box. */
+    aspect-ratio: 1272 / 1283;
+    width: clamp(96px, 11vw, 128px);
+    height: auto;
+    line-height: 0;
+    filter:
+      drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18))
+      drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+  }
+  .md-logo :global(svg) {
+    display: block;
+  }
+</style>
+
+<script>
+  // SMIL can't be gated with CSS, so pause the timeline on a settled frame.
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const apply = () => {
+    for (const svg of document.querySelectorAll<SVGSVGElement>(".md-logo svg")) {
+      if (reduce.matches) {
+        svg.setCurrentTime(0);
+        svg.pauseAnimations();
+      } else {
+        svg.unpauseAnimations();
+      }
+    }
+  };
+
+  apply();
+  reduce.addEventListener("change", apply);
+</script>

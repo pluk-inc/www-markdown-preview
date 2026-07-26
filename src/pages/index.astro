@@ -1,12 +1,11 @@
 ---
 import fs from "node:fs";
 import path from "node:path";
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import AnimatedLogo from "../components/AnimatedLogo.astro";
 import FeatureCard from "../components/FeatureCard.astro";
 import LogoMarquee from "../components/LogoMarquee.astro";
 import SiteNav from "../components/SiteNav.astro";
-import appIcon from "../assets/app-icon.png";
 import {
   DOWNLOAD_URL as downloadUrl,
   RELEASES_URL as releasesUrl,
@@ -65,18 +64,7 @@ const editorTiles = [
   {/* ───────── Hero ───────── */}
   <section class="bg-[var(--color-fog)]">
     <div class="mx-auto max-w-[1200px] px-6 pt-24 sm:pt-[82px] pb-20 sm:pb-20 text-center">
-      <Image
-        src={appIcon}
-        alt="Markdown Preview app icon"
-        class="mx-auto mb-7 sm:mb-9 block app-icon"
-        width={128}
-        height={128}
-        widths={[96, 128, 192, 256]}
-        sizes="(max-width: 640px) 96px, 128px"
-        loading="eager"
-        decoding="sync"
-        fetchpriority="high"
-      />
+      <AnimatedLogo class="mx-auto mb-7 sm:mb-9" />
       <p class="hero-eyebrow text-[var(--color-ink)]">Markdown Preview</p>
       <h1 class="hero-title sm:-mt-1">
         <span class="block">Read beautifully.</span>
@@ -268,15 +256,6 @@ const editorTiles = [
 </Layout>
 
 <style>
-  /* App icon — fluid sizing + soft drop shadow */
-  .app-icon {
-    width: clamp(96px, 11vw, 128px);
-    height: auto;
-    filter:
-      drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18))
-      drop-shadow(0 4px 10px rgba(0, 0, 0, 0.10));
-  }
-
   /* Display typography — fluid via clamp() */
   .hero-eyebrow {
     font-family: var(--font-sf-display);
