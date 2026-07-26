@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LetterGroups from "../components/LetterGroups.astro";
+import SiteNav from "../components/SiteNav.astro";
+import data from "../data/companies.json";
+import { ISSUES_URL, RELEASES_URL, REPO_URL } from "../consts";
+
+const orgCount = data.companies.length + data.schools.length;
+
+/** Group a list into alphabetical buckets, with digits and symbols under "#". */
+const groupByLetter = (list: { name: string }[]) => {
+  const groups = new Map<string, { name: string }[]>();
+  for (const item of [...list].sort((a, b) => a.name.localeCompare(b.name, "en"))) {
+    const first = item.name[0].toUpperCase();
+    const letter = /[A-Z]/.test(first) ? first : "#";
+    const bucket = groups.get(letter);
+    if (bucket) bucket.push(item);
+    else groups.set(letter, [item]);
+  }
+  return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b, "en"));
+};
+
+const companyGroups = groupByLetter(data.companies);
+const schoolGroups = groupByLetter(data.schools);
+---
+
+<Layout
+  title={`Who uses Markdown Preview — ${orgCount} companies and universities`}
+  description={`People at ${data.companies.length} companies and ${data.schools.length} universities have starred Markdown Preview on GitHub. Here is the full list.`}
+>
+  <SiteNav />
+
+  {/* ───────── Header ───────── */}
+  <section class="bg-[var(--color-fog)]">
+    <div class="mx-auto max-w-[920px] px-6 pt-24 sm:pt-28 pb-20 sm:pb-24">
+      <a href="/" class="t-caption text-[var(--color-graphite)] hover:text-[var(--color-ink)] transition-colors">
+        <span aria-hidden="true">‹</span> Back
+      </a>
+      <h1 class="page-title mt-6 text-[var(--color-ink)]">Who reads with it.</h1>
+      <p class="t-body mt-6 max-w-[640px] text-[var(--color-slate)]">
+        People at {orgCount} companies and universities have starred Markdown
+        Preview on GitHub.
+      </p>
+
+      <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 max-w-[420px]">
+        <div>
+          <dt class="stat-label">Companies</dt>
+          <dd class="stat-value">{data.companies.length}</dd>
+        </div>
+        <div>
+          <dt class="stat-label">Universities</dt>
+          <dd class="stat-value">{data.schools.length}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  {/* ───────── Companies ───────── */}
+  <section class="bg-[var(--color-snow)]">
+    <div class="mx-auto max-w-[920px] px-6 pt-20 sm:pt-24 pb-16">
+      <h2 class="group-title text-[var(--color-ink)]">Companies</h2>
+      <LetterGroups groups={companyGroups} idPrefix="companies" />
+    </div>
+  </section>
+
+  {/* ───────── Universities ───────── */}
+  <section class="bg-[var(--color-snow)]">
+    <div class="mx-auto max-w-[920px] px-6 pb-14">
+      <h2 class="group-title text-[var(--color-ink)]">Universities &amp; research</h2>
+      <LetterGroups groups={schoolGroups} idPrefix="schools" />
+    </div>
+  </section>
+
+  {/* ───────── Method — deliberately a one-line footnote ───────── */}
+  <section class="bg-[var(--color-snow)]">
+    <div class="mx-auto max-w-[920px] px-6 pb-20 sm:pb-24">
+      <p class="footnote">
+        <span aria-hidden="true">*</span> Based on GitHub stargazers who tagged an
+        employer or school on their profile. Something wrong?
+        {" "}<a href={ISSUES_URL} class="link">Let me know</a> and I'll fix it.
+      </p>
+    </div>
+  </section>
+
+  {/* ───────── Footer ───────── */}
+  <footer class="bg-[var(--color-snow)] site-footer">
+    <div class="mx-auto max-w-[1200px] px-6 py-10 flex flex-row items-center justify-between gap-4 t-caption text-[var(--color-graphite)]">
+      <p>© {new Date().getFullYear()} Pluk.</p>
+      <div class="flex items-center gap-5 sm:gap-7">
+        <a href="/" class="hover:text-[var(--color-ink)] transition-colors">Home</a>
+        <a href={REPO_URL} class="hover:text-[var(--color-ink)] transition-colors">GitHub</a>
+        <a href={RELEASES_URL} class="hover:text-[var(--color-ink)] transition-colors">Releases</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+
+  .page-title {
+    font-family: var(--font-sf-display);
+    font-weight: 600;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1.07;
+    letter-spacing: -0.9px;
+  }
+  .group-title {
+    font-family: var(--font-sf-display);
+    font-weight: 600;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-graphite);
+  }
+  .stat-value {
+    font-family: var(--font-sf-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1.1;
+    letter-spacing: -0.6px;
+    color: var(--color-ink);
+    margin-top: 4px;
+  }
+
+
+
+
+  .footnote {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--color-graphite);
+    max-width: 560px;
+  }
+
+</style>

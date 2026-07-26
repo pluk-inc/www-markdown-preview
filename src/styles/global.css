@@ -178,6 +178,13 @@ body {
   }
 }
 
+/* Small variant, used in the nav. Declared after the mobile block above so it
+   wins on every viewport. */
+.btn-pill--sm {
+  font-size: 12px;
+  padding: 4px 12px;
+}
+
 /* Ghost text — used as the only "secondary" action next to the pill */
 .btn-ghost {
   display: inline-flex;
@@ -220,6 +227,11 @@ body {
 .card-dark {
   background: var(--color-obsidian);
   color: var(--color-snow);
+}
+
+/* Footer hairline */
+.site-footer {
+  border-top: 1px solid var(--color-silver-mist);
 }
 
 ::selection {

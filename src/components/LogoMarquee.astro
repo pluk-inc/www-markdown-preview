@@ -1,0 +1,281 @@
+---
+/**
+ * Trusted-by logo strip.
+ *
+ * The company list comes from the GitHub stargazers of pluk-inc/markdown-preview
+ * whose profile states they work there. Which names appear here, and in what
+ * order, is an editorial call; src/data/companies.json holds the full data and
+ * every name below is checked against it at build time.
+ *
+ * Marks are monochrome glyphs vendored from simple-icons (src/logos/*.svg). Each
+ * SVG is read at build time and only its path data is inlined, so the mark takes
+ * `currentColor` and the page ships no extra requests.
+ */
+import alibaba from "../logos/alibabadotcom.svg?raw";
+import amazon from "../logos/amazon.svg?raw";
+import bytedance from "../logos/bytedance.svg?raw";
+import cloudflare from "../logos/cloudflare.svg?raw";
+import cursor from "../logos/cursor.svg?raw";
+import docker from "../logos/docker.svg?raw";
+import github from "../logos/github.svg?raw";
+import google from "../logos/google.svg?raw";
+import huawei from "../logos/huawei.svg?raw";
+import meta from "../logos/meta.svg?raw";
+import microsoft from "../logos/microsoft.svg?raw";
+import notion from "../logos/notion.svg?raw";
+import nvidia from "../logos/nvidia.svg?raw";
+import reddit from "../logos/reddit.svg?raw";
+import shopify from "../logos/shopify.svg?raw";
+import spotify from "../logos/spotify.svg?raw";
+import twilio from "../logos/twilio.svg?raw";
+import vercel from "../logos/vercel.svg?raw";
+import xiaomi from "../logos/xiaomi.svg?raw";
+import data from "../data/companies.json";
+
+// Deliberately static so nobody has to keep an exact figure in sync. Bump it
+// when the repo comfortably clears the next round number — it should always sit
+// below the real star count, never above it.
+const STAR_CLAIM = "1,300+";
+
+// Round down so the headline claim always trails the data, even as stars come
+// in between regenerations of companies.json. Universities are counted on the
+// /companies page but kept out of a claim that says "companies".
+const roundedCompanies = Math.floor(data.companies.length / 50) * 50;
+
+/** Pull every `d=".."` out of a simple-icons file, dropping <title> and fills. */
+const paths = (name: string, svg: string) => {
+    const found = [...svg.matchAll(/\sd="([^"]+)"/g)].map((m) => m[1]);
+    // Without this, a malformed vendored file renders as a deliberate text-only
+    // entry — a broken import that looks like a design decision.
+    if (found.length === 0) throw new Error(`No path data in the ${name} logo`);
+    return found;
+};
+
+/**
+ * `svg` is omitted where the brand's official mark is itself a wordmark —
+ * squeezed into a 24px box it reads as a smudge, so those show as text only.
+ */
+const companies = [
+    { name: "Imperial College London" },
+    { name: "Harvard", dataName: "Harvard University" },
+    { name: "Google", svg: google },
+    { name: "Microsoft", svg: microsoft },
+    { name: "Vercel", svg: vercel },
+    { name: "Amazon", svg: amazon },
+    { name: "Meta", svg: meta },
+    { name: "NVIDIA", svg: nvidia },
+    { name: "GitHub", svg: github },
+    { name: "Cloudflare", svg: cloudflare },
+    { name: "Notion", svg: notion },
+    { name: "Cursor", svg: cursor },
+    { name: "Samsung" },
+    { name: "ByteDance", svg: bytedance },
+    { name: "Spotify", svg: spotify },
+    { name: "Alibaba", svg: alibaba },
+    { name: "Xiaomi", svg: xiaomi },
+    { name: "Huawei", svg: huawei },
+    { name: "Shopify", svg: shopify },
+    { name: "Docker", svg: docker },
+    { name: "Twilio", svg: twilio },
+    { name: "Arm" },
+    { name: "Reddit", svg: reddit },
+    { name: "Booking.com" },
+    { name: "Rakuten" },
+    { name: "Oracle" },
+    { name: "SAP" },
+    { name: "JPMorgan Chase" },
+    { name: "Paramount" },
+    // No simple-icons marks exist for universities, so they ride the same
+    // text-only path as the wordmark brands above. `dataName` carries the full
+    // name in companies.json, which is too long to show on the strip.
+    { name: "UC Berkeley", dataName: "University of California, Berkeley" },
+] satisfies { name: string; svg?: string; dataName?: string }[];
+
+/**
+ * The strip advertises names; /companies is where people go to check them. If a
+ * name here isn't in that data, the link leads to a page that doesn't back up
+ * the claim — so fail the build rather than ship the mismatch.
+ */
+const known = new Set(
+    [...data.companies, ...data.schools].map((o) => o.name.toLowerCase()),
+);
+const missing = companies
+    .map((c) => c.dataName ?? c.name)
+    .filter((name) => !known.has(name.toLowerCase()));
+if (missing.length > 0) {
+    throw new Error(
+        `Not in src/data/companies.json: ${missing.join(", ")}. ` +
+            `Regenerate it, drop the entry, or set dataName to the name it uses.`,
+    );
+}
+
+const logos = companies.map((c) => ({
+    name: c.name,
+    paths: "svg" in c && c.svg ? paths(c.name, c.svg) : [],
+}));
+
+// The track holds two identical copies; the animation shifts it by exactly one
+// copy's width, so the seam never shows.
+const track = [...logos, ...logos];
+---
+
+<section class="bg-[var(--color-snow)]" aria-labelledby="trusted-by-title">
+    <div class="mx-auto max-w-[1200px] px-6 pt-24 sm:pt-[104px] text-center">
+        <h2
+            id="trusted-by-title"
+            class="trusted-title text-[var(--color-graphite)]"
+        >
+            Trusted by teams at {roundedCompanies}+ companies
+        </h2>
+    </div>
+
+    <div class="logo-marquee mt-12 sm:mt-14">
+        <ul class="logo-track" role="list">
+            {
+                track.map((c, i) => (
+                    <li
+                        class="logo-item"
+                        aria-hidden={i >= logos.length ? "true" : undefined}
+                    >
+                        {c.paths.length > 0 && (
+                            <svg
+                                class="logo-mark"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                {c.paths.map((d) => (
+                                    <path d={d} fill="currentColor" />
+                                ))}
+                            </svg>
+                        )}
+                        <span class="logo-name">{c.name}</span>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+
+    <p
+        class="mx-auto max-w-[1200px] px-6 mt-12 sm:mt-14 t-caption text-center text-[var(--color-graphite)]"
+    >
+        {STAR_CLAIM} stars on GitHub ·{" "}
+        <a href="/companies" class="link">See the full list</a>
+    </p>
+</section>
+
+<style>
+    .trusted-title {
+        font-family: var(--font-sf-display);
+        font-weight: 600;
+        font-size: clamp(15px, 1.6vw, 17px);
+        line-height: 1.3;
+        letter-spacing: 0.02em;
+    }
+
+    /* Viewport for the strip. Edges fade out so logos enter and leave softly
+     instead of being cut by the container. */
+    .logo-marquee {
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            #000 12%,
+            #000 88%,
+            transparent
+        );
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            #000 12%,
+            #000 88%,
+            transparent
+        );
+    }
+
+    .logo-track {
+        --logo-gap: 56px;
+        display: flex;
+        align-items: center;
+        gap: var(--logo-gap);
+        width: max-content;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        animation: logo-scroll 64s linear infinite;
+    }
+    .logo-marquee:hover .logo-track,
+    .logo-marquee:focus-within .logo-track {
+        animation-play-state: paused;
+    }
+
+    @keyframes logo-scroll {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+        /* One copy of the list = half the track, plus the gap that trails it.
+       Derived from --logo-gap so the seam survives a gap change. */
+        to {
+            transform: translate3d(calc(-50% - var(--logo-gap) / 2), 0, 0);
+        }
+    }
+
+    .logo-item {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        gap: 10px;
+        color: var(--color-graphite);
+        opacity: 0.72;
+        transition:
+            opacity 0.2s ease,
+            color 0.2s ease;
+    }
+    .logo-item:hover {
+        color: var(--color-ink);
+        opacity: 1;
+    }
+
+    .logo-mark {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    .logo-name {
+        font-family: var(--font-sf-display);
+        font-size: 19px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.24px;
+        white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+        .logo-track {
+            --logo-gap: 40px;
+            animation-duration: 48s;
+        }
+        .logo-mark {
+            width: 21px;
+            height: 21px;
+        }
+        .logo-name {
+            font-size: 17px;
+        }
+    }
+
+    /* No motion: hand the strip to the user as a plain horizontal scroller. */
+    @media (prefers-reduced-motion: reduce) {
+        .logo-track {
+            animation: none;
+        }
+        .logo-marquee {
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .logo-marquee::-webkit-scrollbar {
+            display: none;
+        }
+    }
+</style>

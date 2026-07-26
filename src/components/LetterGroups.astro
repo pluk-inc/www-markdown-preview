@@ -1,0 +1,55 @@
+---
+/** An A–Z list of organization names, one block per letter. */
+interface Props {
+  groups: [string, { name: string }[]][];
+  /** Prefixes the per-letter heading ids so two lists can coexist on a page. */
+  idPrefix: string;
+}
+
+const { groups, idPrefix } = Astro.props;
+---
+
+{groups.map(([letter, items]) => (
+  <div class="letter-block">
+    <h3 class="letter-heading" id={`${idPrefix}-${letter.toLowerCase()}`}>{letter}</h3>
+    <ul class="name-grid" role="list">
+      {items.map((item) => <li class="name-item">{item.name}</li>)}
+    </ul>
+  </div>
+))}
+
+<style>
+  .letter-block {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-silver-mist);
+  }
+  .letter-block:first-of-type {
+    border-top: 1px solid var(--color-silver-mist);
+    margin-top: 32px;
+  }
+
+  .letter-heading {
+    font-family: var(--font-sf-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--color-graphite);
+    margin-bottom: 12px;
+  }
+
+  .name-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .name-item {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-slate);
+    /* Long employer strings shouldn't blow out the column. */
+    overflow-wrap: anywhere;
+  }
+</style>

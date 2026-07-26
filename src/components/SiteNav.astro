@@ -1,0 +1,26 @@
+---
+/** Sticky frosted top bar, shared by every page. */
+import { DOWNLOAD_URL, REPO_URL } from "../consts";
+---
+
+<header id="site-header" class="sticky top-0 z-50 site-nav">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <nav class="flex items-center justify-between h-11">
+      <a href="/" class="t-caption font-semibold text-[var(--color-ink)]">Markdown Preview</a>
+      <div class="flex items-center gap-6 t-caption text-[var(--color-ink)]">
+        <a href="/#features" class="hidden sm:inline opacity-80 hover:opacity-100 transition-opacity">Features</a>
+        <a href={REPO_URL} class="opacity-80 hover:opacity-100 transition-opacity">GitHub</a>
+        <a href={DOWNLOAD_URL} class="btn-pill btn-pill--sm">Download</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Frosted nav — --color-fog at 72% */
+  .site-nav {
+    background-color: rgba(245, 245, 247, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+</style>
