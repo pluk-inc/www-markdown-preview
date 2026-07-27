@@ -13,6 +13,7 @@
  */
 import alibaba from "../logos/alibabadotcom.svg?raw";
 import amazon from "../logos/amazon.svg?raw";
+import apple from "../logos/apple.svg?raw";
 import bytedance from "../logos/bytedance.svg?raw";
 import cloudflare from "../logos/cloudflare.svg?raw";
 import cursor from "../logos/cursor.svg?raw";
@@ -58,6 +59,8 @@ const paths = (name: string, svg: string) => {
 const companies = [
     { name: "Imperial College London" },
     { name: "Harvard", dataName: "Harvard University" },
+    // Not in the stargazer data — see MANUAL in scripts/fetch-companies.mjs.
+    { name: "Apple", svg: apple },
     { name: "Google", svg: google },
     { name: "Microsoft", svg: microsoft },
     { name: "Vercel", svg: vercel },
