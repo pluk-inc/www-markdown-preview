@@ -13,6 +13,7 @@
  */
 import alibaba from "../logos/alibabadotcom.svg?raw";
 import amazon from "../logos/amazon.svg?raw";
+import apple from "../logos/apple.svg?raw";
 import bytedance from "../logos/bytedance.svg?raw";
 import cloudflare from "../logos/cloudflare.svg?raw";
 import cursor from "../logos/cursor.svg?raw";
@@ -35,7 +36,7 @@ import data from "../data/companies.json";
 // Deliberately static so nobody has to keep an exact figure in sync. Bump it
 // when the repo comfortably clears the next round number — it should always sit
 // below the real star count, never above it.
-const STAR_CLAIM = "1,300+";
+const STAR_CLAIM = "1,400+";
 
 // Round down so the headline claim always trails the data, even as stars come
 // in between regenerations of companies.json. Universities are counted on the
@@ -58,6 +59,8 @@ const paths = (name: string, svg: string) => {
 const companies = [
     { name: "Imperial College London" },
     { name: "Harvard", dataName: "Harvard University" },
+    // Not in the stargazer data — see MANUAL in scripts/fetch-companies.mjs.
+    { name: "Apple", svg: apple },
     { name: "Google", svg: google },
     { name: "Microsoft", svg: microsoft },
     { name: "Vercel", svg: vercel },

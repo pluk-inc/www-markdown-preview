@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-26",
-  "stars": 1369,
-  "stargazersWithEmployer": 386,
+  "generatedAt": "2026-07-27",
+  "stars": 1458,
+  "stargazersWithEmployer": 409,
   "companies": [
     {
       "name": "Mindvalley",
@@ -10,12 +10,7 @@
     },
     {
       "name": "ByteDance",
-      "count": 4,
-      "verified": true
-    },
-    {
-      "name": "Alibaba",
-      "count": 3,
+      "count": 5,
       "verified": true
     },
     {
@@ -24,8 +19,18 @@
       "verified": true
     },
     {
+      "name": "Microsoft",
+      "count": 3,
+      "verified": true
+    },
+    {
       "name": "Tencent",
       "count": 3,
+      "verified": true
+    },
+    {
+      "name": "Alibaba",
+      "count": 2,
       "verified": true
     },
     {
@@ -39,17 +44,17 @@
       "verified": false
     },
     {
+      "name": "Cursor",
+      "count": 2,
+      "verified": true
+    },
+    {
       "name": "Google",
       "count": 2,
       "verified": true
     },
     {
       "name": "Meituan",
-      "count": 2,
-      "verified": true
-    },
-    {
-      "name": "Microsoft",
       "count": 2,
       "verified": true
     },
@@ -99,6 +104,11 @@
       "verified": true
     },
     {
+      "name": "AiMark",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Al Salam Bank",
       "count": 1,
       "verified": true
@@ -129,6 +139,11 @@
       "verified": true
     },
     {
+      "name": "Anything",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Anywhere",
       "count": 1,
       "verified": true
@@ -142,6 +157,12 @@
       "name": "Appcropolis",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Apple",
+      "count": 1,
+      "verified": false,
+      "manual": true
     },
     {
       "name": "ApptitudeLabs",
@@ -214,12 +235,27 @@
       "verified": true
     },
     {
+      "name": "Bookipi",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Broadcom",
       "count": 1,
       "verified": true
     },
     {
       "name": "BSHK.APP",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Buk",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Bybeit",
       "count": 1,
       "verified": false
     },
@@ -232,6 +268,11 @@
       "name": "C6bank.Com.Br",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Cake Labs",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Cash App",
@@ -319,11 +360,6 @@
       "verified": true
     },
     {
-      "name": "Cursor",
-      "count": 1,
-      "verified": true
-    },
-    {
       "name": "CyberAgent",
       "count": 1,
       "verified": true
@@ -357,6 +393,11 @@
       "name": "DelphiOneGit",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Deltalytix",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Descope",
@@ -404,6 +445,11 @@
       "verified": false
     },
     {
+      "name": "Dsght.Ai",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "EA Sports",
       "count": 1,
       "verified": false
@@ -415,6 +461,11 @@
     },
     {
       "name": "Elao",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Eleven-Estudio",
       "count": 1,
       "verified": true
     },
@@ -462,6 +513,11 @@
       "name": "Florian Industries",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Flowbase",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Forto",
@@ -574,6 +630,11 @@
       "verified": false
     },
     {
+      "name": "Ibotta",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Iftechio",
       "count": 1,
       "verified": true
@@ -602,6 +663,11 @@
       "name": "Infoguard AG",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Innovest Portfolio Solutions",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Instacart",
@@ -700,6 +766,11 @@
     },
     {
       "name": "LA-CRUZ",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "LALIGA",
       "count": 1,
       "verified": true
     },
@@ -924,6 +995,11 @@
       "verified": true
     },
     {
+      "name": "Octopia",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "OKRATechnologies",
       "count": 1,
       "verified": true
@@ -1025,6 +1101,11 @@
     },
     {
       "name": "PrestaShop",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Pricespider",
       "count": 1,
       "verified": true
     },
@@ -1179,6 +1260,11 @@
       "verified": false
     },
     {
+      "name": "Slevomat",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Slightly-Techie",
       "count": 1,
       "verified": true
@@ -1254,7 +1340,17 @@
       "verified": true
     },
     {
+      "name": "Tangled",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Target",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Taskey",
       "count": 1,
       "verified": true
     },
@@ -1267,6 +1363,11 @@
       "name": "team-sviluppo , Hextra",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "TechnoNext",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Tekalib",
@@ -1345,6 +1446,11 @@
     },
     {
       "name": "Twilio",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "UAECredibleX",
       "count": 1,
       "verified": true
     },
@@ -1669,6 +1775,11 @@
       "name": "Technical University of Eindhoven",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "The University of Hong Kong",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "The University of Texas at Dallas",

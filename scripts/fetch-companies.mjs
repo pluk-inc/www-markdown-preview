@@ -46,6 +46,23 @@ const QUERY = `
   }
 `;
 
+/**
+ * Names that don't come from GitHub at all — someone told us directly. They are
+ * merged in after the verification pass and skip it entirely, because there is
+ * nothing on GitHub to check them against.
+ *
+ * Only add a name here when a person who works there said so. Record who and
+ * when, so the claim can be traced later or withdrawn if asked. `verified` stays
+ * false for these: it means "resolves to a real GitHub org", which is a
+ * different question from whether someone there uses the app.
+ */
+const MANUAL = [
+  // Confirmed privately to Fauzaan by an Apple employee, 2026-07-27. Not
+  // visible in stargazer data — do not delete expecting a regeneration to
+  // bring it back.
+  { name: "Apple", education: false },
+];
+
 /** Profile values that name a status, not an employer. */
 const NOT_A_COMPANY =
   /^(none|n\/a|null|null null|undefined|-|student|students?|self|#self|self-?employed|personal|me|freelance|freelancer|freelancing|independent|indie|unemployed|jobless|home|earth|world|internet|web3|crypto|stealth|stealth startup|remote|various|multiple|open to (work|new opportunities|opportunities)|looking for (a )?job|developer|developer \/ engineer|engineer|programmer|10x company|백수|ceo|cto|cio|ciso|coo|founder|co-?founder|freelance ios and web developer|it consulting & partner)$/i;
@@ -393,11 +410,26 @@ console.error(
   `dropped ${dropped.deadHandle.length} handles that don't exist: ${dropped.deadHandle.join(", ")}`,
 );
 
+// Merged last so the verification pass above can't drop them — there is nothing
+// on GitHub backing these, which is the whole point of the list.
+for (const entry of MANUAL) {
+  const bucket = entry.education ? schools : companies;
+  const k = key(entry.name);
+  if (bucket.has(k)) continue; // already found in the data; nothing to add
+  bucket.set(k, { name: entry.name, count: 1, verified: false, manual: true });
+}
+console.error(`added ${MANUAL.length} manually confirmed: ${MANUAL.map((m) => m.name).join(", ")}`);
+
 const sort = (map) =>
   [...map.values()]
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, "en"))
-    // `handle`/`login` are working state; the site only needs these three.
-    .map(({ name, count, verified }) => ({ name, count, verified }));
+    // `handle`/`login` are working state; the site only needs these.
+    .map(({ name, count, verified, manual }) => ({
+      name,
+      count,
+      verified,
+      ...(manual ? { manual: true } : {}),
+    }));
 
 const data = {
   // Sourced from GitHub profiles, so this is a snapshot, not a live figure.
