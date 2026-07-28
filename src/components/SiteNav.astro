@@ -1,6 +1,6 @@
 ---
 /** Sticky frosted top bar, shared by every page. */
-import { DOWNLOAD_URL, REPO_URL } from "../consts";
+import { DOWNLOAD_URL, REPO_URL, SPONSOR_URL } from "../consts";
 ---
 
 <header id="site-header" class="sticky top-0 z-50 site-nav">
@@ -10,6 +10,12 @@ import { DOWNLOAD_URL, REPO_URL } from "../consts";
       <div class="flex items-center gap-6 t-caption text-[var(--color-ink)]">
         <a href="/#features" class="hidden sm:inline opacity-80 hover:opacity-100 transition-opacity">Features</a>
         <a href={REPO_URL} class="opacity-80 hover:opacity-100 transition-opacity">GitHub</a>
+        <a
+          href={SPONSOR_URL}
+          target="_blank"
+          rel="noopener"
+          class="opacity-80 hover:opacity-100 transition-opacity">Buy me a coffee</a
+        >
         <a href={DOWNLOAD_URL} class="btn-pill btn-pill--sm">Download</a>
       </div>
     </nav>
