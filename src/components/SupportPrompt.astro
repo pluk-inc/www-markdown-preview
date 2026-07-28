@@ -1,113 +1,259 @@
 ---
 /**
- * Post-download support ask. Any link pointing at DOWNLOAD_URL arms the dialog;
- * it opens a moment later so the DMG has already started downloading and the
- * prompt reads as a thank-you rather than a toll gate.
+ * Post-download support ask, shaped like the thing people just downloaded: a
+ * miniature Markdown Preview window with `thank-you.md` open in it.
  *
- * Shown at most once per browser — the dismissal is written to localStorage on
- * both "support" and "later", so nobody gets nagged twice.
+ * Any link pointing at DOWNLOAD_URL arms the dialog; it opens a moment later so
+ * the DMG has already started and the prompt reads as a thank-you rather than a
+ * toll gate. Shown at most once per browser.
  */
-import appIcon from "../assets/app-icon.png";
-import { DOWNLOAD_URL, SPONSOR_URL } from "../consts";
+import { DOWNLOAD_URL, REPO_URL, SPONSOR_URL } from "../consts";
 
 const OPEN_DELAY_MS = 1400;
 const STORAGE_KEY = "mp:support-prompt-seen";
 ---
 
 <dialog id="support-prompt" class="support-dialog" aria-labelledby="support-prompt-title">
-  <div class="support-card">
-    <img
-      src={appIcon.src}
-      alt=""
-      width="72"
-      height="72"
-      class="support-icon"
-      decoding="async"
-      loading="lazy"
-    />
+  {/* Holds the initial focus so showModal() doesn't ring the first control,
+      while keeping focus inside the dialog for keyboard users. */}
+  <div class="support-window" tabindex="-1" autofocus>
+    <div class="support-titlebar">
+      <div class="support-lights">
+        <button type="button" class="light light--close" aria-label="Close" data-support-dismiss></button>
+        <span class="light light--min" aria-hidden="true"></span>
+        <span class="light light--zoom" aria-hidden="true"></span>
+      </div>
+      <span class="support-filename">thank-you.md</span>
+    </div>
 
-    <h2 id="support-prompt-title" class="support-title">Your download has started.</h2>
+    <div class="support-doc">
+      <h2 id="support-prompt-title" class="support-heading">
+        <span class="support-sigil" aria-hidden="true">#</span>Thank you.
+      </h2>
 
-    <p class="support-body">
-      Markdown Preview is free and open source, built and maintained in spare time.
-      If it earns a place in your dock, a coffee keeps the work going.
-    </p>
+      <p class="support-body">
+        Markdown Preview is free, MIT licensed, and maintained by one person in spare
+        time. It stays that way whether or not you do anything next.
+      </p>
 
-    <div class="support-actions">
-      <a href={SPONSOR_URL} target="_blank" rel="noopener" class="btn-pill" data-support-accept>
-        Buy me a coffee
-      </a>
-      <button type="button" class="btn-ghost" data-support-dismiss>Maybe later</button>
+      <blockquote class="support-quote">
+        If it earns a spot in your dock, a coffee covers a late night of it.
+      </blockquote>
+
+      <div class="support-actions">
+        <a href={SPONSOR_URL} target="_blank" rel="noopener" class="support-cta" data-support-accept>
+          Buy me a coffee
+        </a>
+        <a href={REPO_URL} target="_blank" rel="noopener" class="support-alt" data-support-star>
+          Or star it on GitHub — that helps too
+        </a>
+      </div>
     </div>
   </div>
 </dialog>
 
 <style>
+  /* One warm accent, earned by the subject. Used twice: the quote rule and the
+     CTA. Everything else stays on the site's grayscale tokens. */
   .support-dialog {
+    --espresso: #6b4423;
+    --espresso-deep: #52341b;
+
+    /* Tailwind preflight zeroes `margin` on every element, which removes the UA
+       stylesheet's `margin: auto` that centres a modal dialog. */
+    inset: 0;
+    margin: auto;
     border: none;
     padding: 0;
-    max-width: min(420px, calc(100vw - 32px));
+    width: min(440px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
     background: transparent;
     color: var(--color-ink);
+    overflow: visible;
   }
   .support-dialog::backdrop {
-    background: rgba(29, 29, 31, 0.32);
+    background: rgba(29, 29, 31, 0.34);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
   }
 
-  .support-card {
+  /* ── Window ───────────────────────────────────────────────────────── */
+  .support-window {
     background: var(--color-snow);
-    border-radius: 28px;
-    padding: 36px 32px 32px;
-    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 0.5px rgba(0, 0, 0, 0.12),
+      0 24px 60px -12px rgba(0, 0, 0, 0.3);
+  }
+  .support-window:focus {
+    outline: none;
   }
 
-  .support-icon {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 18px;
+  .support-titlebar {
+    position: relative;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    background: var(--color-fog);
+    border-bottom: 1px solid var(--color-silver-mist);
+  }
+  .support-lights {
+    display: flex;
+    gap: 8px;
+  }
+  .light {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
     display: block;
   }
+  .light--close {
+    background: #ff5f57;
+    transition: background-color 0.15s ease;
+  }
+  .light--close:hover {
+    background: #e8433a;
+  }
+  .light--min { background: #febc2e; }
+  .light--zoom { background: #28c840; }
 
-  .support-title {
+  /* Centred on the window, not on the space left of the lights */
+  .support-filename {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0;
+    color: var(--color-graphite);
+    pointer-events: none;
+  }
+
+  /* ── Document ─────────────────────────────────────────────────────── */
+  .support-doc {
+    padding: 30px 34px 28px;
+  }
+
+  /* Hanging indent: the sigil sits out in the margin, vertically centred on the
+     heading's line box rather than on its baseline. */
+  .support-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: -22px;
     font-family: var(--font-sf-display);
     font-weight: 600;
-    font-size: 24px;
-    line-height: 1.2;
-    letter-spacing: -0.36px;
+    font-size: 27px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+  /* The signature: the source sigil hanging in the margin, as it would sit in
+     the raw file. */
+  .support-sigil {
+    flex: none;
+    width: 14px;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--espresso);
+    opacity: 0.4;
   }
 
   .support-body {
-    margin-top: 10px;
+    margin-top: 12px;
     color: var(--color-slate);
     font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: -0.08px;
+  }
+
+  .support-quote {
+    margin-top: 18px;
+    padding: 12px 16px;
+    border-left: 2px solid var(--espresso);
+    background: rgba(107, 68, 35, 0.05);
+    border-radius: 0 8px 8px 0;
+    color: var(--color-ash);
+    font-size: 15px;
+    font-style: italic;
     line-height: 1.5;
     letter-spacing: -0.08px;
   }
 
+  /* ── Actions ──────────────────────────────────────────────────────── */
   .support-actions {
     margin-top: 26px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 14px;
   }
 
-  /* Entry animation, skipped for reduced-motion */
-  .support-dialog[open] .support-card {
-    animation: support-in 0.24s cubic-bezier(0.32, 0.72, 0, 1);
+  .support-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--espresso);
+    color: var(--color-snow);
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-family: var(--font-sf-text);
+    font-size: 16px;
+    letter-spacing: -0.1px;
+    text-decoration: none;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+  }
+  .support-cta:hover {
+    background: var(--espresso-deep);
+    transform: translateY(-1px);
+  }
+
+  .support-alt {
+    color: var(--color-graphite);
+    font-size: 13px;
+    letter-spacing: -0.06px;
+    text-decoration: none;
+  }
+  .support-alt:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Keyboard focus stays visible; mouse clicks don't ring. */
+  .support-dialog a:focus-visible,
+  .support-dialog button:focus-visible {
+    outline: 2px solid var(--color-azure);
+    outline-offset: 3px;
+  }
+
+  /* ── Entry ────────────────────────────────────────────────────────── */
+  .support-dialog[open] .support-window {
+    animation: support-in 0.26s cubic-bezier(0.32, 0.72, 0, 1);
   }
   @keyframes support-in {
     from {
       opacity: 0;
-      transform: translateY(8px) scale(0.97);
+      transform: translateY(10px) scale(0.96);
     }
   }
+
+  @media (max-width: 480px) {
+    .support-doc { padding: 24px 22px 24px; }
+    .support-heading { font-size: 24px; }
+    /* No room for a hanging margin on a phone — pull the sigil back in line. */
+    .support-heading { margin-left: 0; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .support-dialog[open] .support-card {
-      animation: none;
-    }
+    .support-dialog[open] .support-window { animation: none; }
+    .support-cta:hover { transform: none; }
   }
 </style>
 
@@ -143,18 +289,21 @@ const STORAGE_KEY = "mp:support-prompt-seen";
     });
 
     dialog.querySelector('[data-support-accept]')?.addEventListener('click', () => {
-      markSeen();
       track('support_prompt_accepted');
       dialog.close();
     });
 
+    dialog.querySelector('[data-support-star]')?.addEventListener('click', () => {
+      track('support_prompt_starred');
+      dialog.close();
+    });
+
     dialog.querySelector('[data-support-dismiss]')?.addEventListener('click', () => {
-      markSeen();
       track('support_prompt_dismissed');
       dialog.close();
     });
 
-    // Esc, or a click on the backdrop outside the card.
+    // Esc, the red light, and a click on the backdrop all land here.
     dialog.addEventListener('close', markSeen);
     dialog.addEventListener('click', (e) => {
       if (e.target === dialog) dialog.close();
