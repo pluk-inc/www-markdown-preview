@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SupportPrompt from "../components/SupportPrompt.astro";
 
 interface Props {
   title?: string;
@@ -60,5 +61,6 @@ const POSTHOG_HOST = "https://us.i.posthog.com";
   </head>
   <body>
     <slot />
+    <SupportPrompt />
   </body>
 </html>

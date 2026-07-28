@@ -1,0 +1,163 @@
+---
+/**
+ * Post-download support ask. Any link pointing at DOWNLOAD_URL arms the dialog;
+ * it opens a moment later so the DMG has already started downloading and the
+ * prompt reads as a thank-you rather than a toll gate.
+ *
+ * Shown at most once per browser — the dismissal is written to localStorage on
+ * both "support" and "later", so nobody gets nagged twice.
+ */
+import appIcon from "../assets/app-icon.png";
+import { DOWNLOAD_URL, SPONSOR_URL } from "../consts";
+
+const OPEN_DELAY_MS = 1400;
+const STORAGE_KEY = "mp:support-prompt-seen";
+---
+
+<dialog id="support-prompt" class="support-dialog" aria-labelledby="support-prompt-title">
+  <div class="support-card">
+    <img
+      src={appIcon.src}
+      alt=""
+      width="72"
+      height="72"
+      class="support-icon"
+      decoding="async"
+      loading="lazy"
+    />
+
+    <h2 id="support-prompt-title" class="support-title">Your download has started.</h2>
+
+    <p class="support-body">
+      Markdown Preview is free and open source, built and maintained in spare time.
+      If it earns a place in your dock, a coffee keeps the work going.
+    </p>
+
+    <div class="support-actions">
+      <a href={SPONSOR_URL} target="_blank" rel="noopener" class="btn-pill" data-support-accept>
+        Buy me a coffee
+      </a>
+      <button type="button" class="btn-ghost" data-support-dismiss>Maybe later</button>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .support-dialog {
+    border: none;
+    padding: 0;
+    max-width: min(420px, calc(100vw - 32px));
+    background: transparent;
+    color: var(--color-ink);
+  }
+  .support-dialog::backdrop {
+    background: rgba(29, 29, 31, 0.32);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .support-card {
+    background: var(--color-snow);
+    border-radius: 28px;
+    padding: 36px 32px 32px;
+    text-align: center;
+  }
+
+  .support-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    display: block;
+  }
+
+  .support-title {
+    font-family: var(--font-sf-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.36px;
+  }
+
+  .support-body {
+    margin-top: 10px;
+    color: var(--color-slate);
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.08px;
+  }
+
+  .support-actions {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* Entry animation, skipped for reduced-motion */
+  .support-dialog[open] .support-card {
+    animation: support-in 0.24s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  @keyframes support-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.97);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .support-dialog[open] .support-card {
+      animation: none;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ DOWNLOAD_URL, OPEN_DELAY_MS, STORAGE_KEY }}>
+  (() => {
+    const dialog = document.getElementById('support-prompt');
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+
+    // localStorage throws in Safari private mode — treat any failure as "not seen".
+    const seen = () => {
+      try {
+        return localStorage.getItem(STORAGE_KEY) === '1';
+      } catch {
+        return false;
+      }
+    };
+    const markSeen = () => {
+      try {
+        localStorage.setItem(STORAGE_KEY, '1');
+      } catch {}
+    };
+
+    const track = (event) => window.posthog?.capture?.(event);
+
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest?.('a[href]');
+      if (!link || link.href !== DOWNLOAD_URL || seen()) return;
+      window.setTimeout(() => {
+        if (dialog.open || seen()) return;
+        dialog.showModal();
+        track('support_prompt_shown');
+      }, OPEN_DELAY_MS);
+    });
+
+    dialog.querySelector('[data-support-accept]')?.addEventListener('click', () => {
+      markSeen();
+      track('support_prompt_accepted');
+      dialog.close();
+    });
+
+    dialog.querySelector('[data-support-dismiss]')?.addEventListener('click', () => {
+      markSeen();
+      track('support_prompt_dismissed');
+      dialog.close();
+    });
+
+    // Esc, or a click on the backdrop outside the card.
+    dialog.addEventListener('close', markSeen);
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  })();
+</script>
