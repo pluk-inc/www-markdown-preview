@@ -589,6 +589,13 @@ Everything we need before the
     -ms-overflow-style: none;
   }
   .features-scroller::-webkit-scrollbar { display: none; }
+  .features-scroller { cursor: grab; }
+  .features-scroller.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+  .features-scroller img { -webkit-user-drag: none; }
   .features-spacer { flex-shrink: 0; width: var(--gutter); }
 
   /* Card fallback mocks (only render when a screenshot is missing) */
@@ -685,6 +692,39 @@ Everything we need before the
         scroller.scrollBy({ left: step(), behavior: 'smooth' });
         window.posthog?.capture('feature_carousel_navigated', { direction: 'next' });
       });
+
+      // Drag-to-scroll for mouse users — the scrollbar is hidden, and unlike a
+      // trackpad a mouse has no other way to pan the row.
+      let dragging = false;
+      let moved = false;
+      let startX = 0;
+      let startLeft = 0;
+      scroller.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        dragging = true;
+        moved = false;
+        startX = e.clientX;
+        startLeft = scroller.scrollLeft;
+        scroller.classList.add('is-dragging');
+      });
+      window.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 3) moved = true;
+        scroller.scrollLeft = startLeft - dx;
+      });
+      window.addEventListener('pointerup', () => {
+        if (!dragging) return;
+        dragging = false;
+        scroller.classList.remove('is-dragging');
+      });
+      // A drag that ends on a link shouldn't count as a click on it.
+      scroller.addEventListener('click', (e) => {
+        if (moved) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true);
     }
 
     // Closing CTA tracking
