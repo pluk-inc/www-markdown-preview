@@ -140,3 +140,9 @@ const schoolGroups = groupByLetter(data.schools);
   }
 
 </style>
+
+<script is:inline define:vars={{ orgCount }}>
+  window.posthog?.capture('companies_page_viewed', {
+    org_count: orgCount,
+  });
+</script>

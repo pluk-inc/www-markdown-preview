@@ -9,14 +9,15 @@ import { DOWNLOAD_URL, REPO_URL, SPONSOR_URL } from "../consts";
       <a href="/" class="t-caption font-semibold text-[var(--color-ink)]">Markdown Preview</a>
       <div class="flex items-center gap-6 t-caption text-[var(--color-ink)]">
         <a href="/#features" class="hidden sm:inline opacity-80 hover:opacity-100 transition-opacity">Features</a>
-        <a href={REPO_URL} class="opacity-80 hover:opacity-100 transition-opacity">GitHub</a>
+        <a href={REPO_URL} class="opacity-80 hover:opacity-100 transition-opacity" id="nav-github">GitHub</a>
         <a
           href={SPONSOR_URL}
           target="_blank"
           rel="noopener"
-          class="opacity-80 hover:opacity-100 transition-opacity">Buy me a coffee</a
+          class="opacity-80 hover:opacity-100 transition-opacity"
+          id="nav-sponsor">Support</a
         >
-        <a href={DOWNLOAD_URL} class="btn-pill btn-pill--sm">Download</a>
+        <a href={DOWNLOAD_URL} class="btn-pill btn-pill--sm" id="nav-download">Download</a>
       </div>
     </nav>
   </div>
@@ -30,3 +31,15 @@ import { DOWNLOAD_URL, REPO_URL, SPONSOR_URL } from "../consts";
     -webkit-backdrop-filter: saturate(180%) blur(20px);
   }
 </style>
+
+<script is:inline>
+  document.getElementById('nav-download')?.addEventListener('click', () => {
+    window.posthog?.capture('download_clicked', { location: 'nav' });
+  });
+  document.getElementById('nav-sponsor')?.addEventListener('click', () => {
+    window.posthog?.capture('sponsor_clicked', { location: 'nav' });
+  });
+  document.getElementById('nav-github')?.addEventListener('click', () => {
+    window.posthog?.capture('github_link_clicked', { location: 'nav' });
+  });
+</script>

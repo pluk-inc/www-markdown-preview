@@ -32,20 +32,22 @@ const STORAGE_KEY = "mp:support-prompt-seen";
       </h2>
 
       <p class="support-body">
-        Markdown Preview is free, MIT licensed, and maintained by one person in spare
-        time. It stays that way whether or not you do anything next.
+        Markdown Preview is free for everyone — no ads, no accounts, no paid version.
+        It's built by one person, and I'd love to keep it that way.
       </p>
 
       <blockquote class="support-quote">
-        If it earns a spot in your dock, a coffee covers a late night of it.
+        If it's useful to you, a small contribution — $1, $3, or $5 — helps keep it
+        free for everyone. A star on GitHub helps more people find it.
       </blockquote>
 
       <div class="support-actions">
         <a href={SPONSOR_URL} target="_blank" rel="noopener" class="support-cta" data-support-accept>
-          Buy me a coffee
+          Contribute
         </a>
         <a href={REPO_URL} target="_blank" rel="noopener" class="support-alt" data-support-star>
-          Or star it on GitHub — that helps too
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Star on GitHub
         </a>
       </div>
     </div>
@@ -56,8 +58,8 @@ const STORAGE_KEY = "mp:support-prompt-seen";
   /* One warm accent, earned by the subject. Used twice: the quote rule and the
      CTA. Everything else stays on the site's grayscale tokens. */
   .support-dialog {
-    --espresso: #6b4423;
-    --espresso-deep: #52341b;
+    --accent: #f56300;
+    --accent-deep: #d95600;
 
     /* Tailwind preflight zeroes `margin` on every element, which removes the UA
        stylesheet's `margin: auto` that centres a modal dialog. */
@@ -161,7 +163,7 @@ const STORAGE_KEY = "mp:support-prompt-seen";
     font-weight: 400;
     font-size: 20px;
     line-height: 1;
-    color: var(--espresso);
+    color: var(--accent);
     opacity: 0.4;
   }
 
@@ -176,8 +178,8 @@ const STORAGE_KEY = "mp:support-prompt-seen";
   .support-quote {
     margin-top: 18px;
     padding: 12px 16px;
-    border-left: 2px solid var(--espresso);
-    background: rgba(107, 68, 35, 0.05);
+    border-left: 2px solid var(--accent);
+    background: rgba(245, 99, 0, 0.05);
     border-radius: 0 8px 8px 0;
     color: var(--color-ash);
     font-size: 15px;
@@ -186,20 +188,20 @@ const STORAGE_KEY = "mp:support-prompt-seen";
     letter-spacing: -0.08px;
   }
 
-  /* ── Actions ──────────────────────────────────────────────────────── */
+  /* ── Actions — two peers, side by side ───────────────────────────── */
   .support-actions {
     margin-top: 26px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
   }
 
   .support-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--espresso);
+    background: var(--accent);
     color: var(--color-snow);
     border-radius: 999px;
     padding: 10px 20px;
@@ -210,20 +212,31 @@ const STORAGE_KEY = "mp:support-prompt-seen";
     transition: background-color 0.18s ease, transform 0.18s ease;
   }
   .support-cta:hover {
-    background: var(--espresso-deep);
+    background: var(--accent-deep);
     transform: translateY(-1px);
   }
 
   .support-alt {
-    color: var(--color-graphite);
-    font-size: 13px;
-    letter-spacing: -0.06px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-silver-mist);
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-family: var(--font-sf-text);
+    font-size: 16px;
+    letter-spacing: -0.1px;
     text-decoration: none;
+    transition: background-color 0.18s ease, border-color 0.18s ease;
   }
   .support-alt:hover {
-    color: var(--color-ink);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    background: var(--color-fog);
+    border-color: #d8d8dc;
+  }
+  .support-alt svg {
+    color: var(--color-graphite);
   }
 
   /* Keyboard focus stays visible; mouse clicks don't ring. */
