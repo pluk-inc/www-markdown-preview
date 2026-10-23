@@ -14,6 +14,8 @@
 import alibaba from "../logos/alibabadotcom.svg?raw";
 import amazon from "../logos/amazon.svg?raw";
 import apple from "../logos/apple.svg?raw";
+import atlassian from "../logos/atlassian.svg?raw";
+import broadcom from "../logos/broadcom.svg?raw";
 import bytedance from "../logos/bytedance.svg?raw";
 import cloudflare from "../logos/cloudflare.svg?raw";
 import cursor from "../logos/cursor.svg?raw";
@@ -21,22 +23,28 @@ import docker from "../logos/docker.svg?raw";
 import github from "../logos/github.svg?raw";
 import google from "../logos/google.svg?raw";
 import huawei from "../logos/huawei.svg?raw";
+import ibm from "../logos/ibm.svg?raw";
+import instacart from "../logos/instacart.svg?raw";
 import meta from "../logos/meta.svg?raw";
 import microsoft from "../logos/microsoft.svg?raw";
 import notion from "../logos/notion.svg?raw";
 import nvidia from "../logos/nvidia.svg?raw";
 import reddit from "../logos/reddit.svg?raw";
+import roblox from "../logos/roblox.svg?raw";
 import shopify from "../logos/shopify.svg?raw";
+import slack from "../logos/slack.svg?raw";
 import spotify from "../logos/spotify.svg?raw";
 import twilio from "../logos/twilio.svg?raw";
 import vercel from "../logos/vercel.svg?raw";
+import visa from "../logos/visa.svg?raw";
 import xiaomi from "../logos/xiaomi.svg?raw";
+import zillow from "../logos/zillow.svg?raw";
 import data from "../data/companies.json";
 
 // Deliberately static so nobody has to keep an exact figure in sync. Bump it
 // when the repo comfortably clears the next round number — it should always sit
 // below the real star count, never above it.
-const STAR_CLAIM = "1,400+";
+const STAR_CLAIM = "2,500+";
 
 // Round down so the headline claim always trails the data, even as stars come
 // in between regenerations of companies.json. Universities are counted on the
@@ -60,6 +68,7 @@ const companies = [
     { name: "Imperial College London" },
     { name: "Harvard", dataName: "Harvard University" },
     // Not in the stargazer data — see MANUAL in scripts/fetch-companies.mjs.
+    // Same for GitHub and Rakuten below.
     { name: "Apple", svg: apple },
     { name: "Google", svg: google },
     { name: "Microsoft", svg: microsoft },
@@ -78,10 +87,18 @@ const companies = [
     { name: "Xiaomi", svg: xiaomi },
     { name: "Huawei", svg: huawei },
     { name: "Shopify", svg: shopify },
+    { name: "IBM", svg: ibm },
     { name: "Docker", svg: docker },
     { name: "Twilio", svg: twilio },
     { name: "Arm" },
     { name: "Reddit", svg: reddit },
+    { name: "Atlassian", svg: atlassian },
+    { name: "Slack", svg: slack },
+    { name: "Visa", svg: visa },
+    { name: "Instacart", svg: instacart },
+    { name: "Roblox", svg: roblox },
+    { name: "Zillow", svg: zillow },
+    { name: "Broadcom", svg: broadcom },
     { name: "Booking.com" },
     { name: "Rakuten" },
     { name: "Oracle" },

@@ -55,11 +55,12 @@ const STORAGE_KEY = "mp:support-prompt-seen";
 </dialog>
 
 <style>
-  /* One warm accent, earned by the subject. Used twice: the quote rule and the
-     CTA. Everything else stays on the site's grayscale tokens. */
+  /* One accent, the site's own blue. Used twice: the quote rule and the CTA.
+     Everything else stays on the site's grayscale tokens. A warm orange read as
+     a warning colour on the money ask, so it was dropped. */
   .support-dialog {
-    --accent: #f56300;
-    --accent-deep: #d95600;
+    --accent: var(--color-azure);
+    --accent-deep: var(--color-cobalt-link);
 
     /* Tailwind preflight zeroes `margin` on every element, which removes the UA
        stylesheet's `margin: auto` that centres a modal dialog. */
@@ -179,7 +180,7 @@ const STORAGE_KEY = "mp:support-prompt-seen";
     margin-top: 18px;
     padding: 12px 16px;
     border-left: 2px solid var(--accent);
-    background: rgba(245, 99, 0, 0.05);
+    background: rgba(0, 113, 227, 0.05);
     border-radius: 0 8px 8px 0;
     color: var(--color-ash);
     font-size: 15px;

@@ -1,20 +1,40 @@
 {
-  "generatedAt": "2026-07-27",
-  "stars": 1458,
-  "stargazersWithEmployer": 409,
+  "generatedAt": "2026-10-23",
+  "stars": 2632,
+  "stargazersWithEmployer": 672,
   "companies": [
     {
       "name": "Mindvalley",
-      "count": 8,
-      "verified": true
-    },
-    {
-      "name": "ByteDance",
-      "count": 5,
+      "count": 10,
       "verified": true
     },
     {
       "name": "Amazon",
+      "count": 6,
+      "verified": true
+    },
+    {
+      "name": "ByteDance",
+      "count": 4,
+      "verified": true
+    },
+    {
+      "name": "Tencent",
+      "count": 4,
+      "verified": true
+    },
+    {
+      "name": "Alibaba",
+      "count": 3,
+      "verified": true
+    },
+    {
+      "name": "Google",
+      "count": 3,
+      "verified": true
+    },
+    {
+      "name": "IBM",
       "count": 3,
       "verified": true
     },
@@ -24,17 +44,12 @@
       "verified": true
     },
     {
-      "name": "Tencent",
+      "name": "NVIDIA",
       "count": 3,
       "verified": true
     },
     {
-      "name": "Alibaba",
-      "count": 2,
-      "verified": true
-    },
-    {
-      "name": "Automattic",
+      "name": "Broadcom",
       "count": 2,
       "verified": true
     },
@@ -44,18 +59,48 @@
       "verified": false
     },
     {
-      "name": "Cursor",
+      "name": "CodeEdit",
       "count": 2,
       "verified": true
     },
     {
-      "name": "Google",
+      "name": "Instacart",
       "count": 2,
       "verified": true
     },
     {
       "name": "Meituan",
       "count": 2,
+      "verified": true
+    },
+    {
+      "name": "Meta",
+      "count": 2,
+      "verified": true
+    },
+    {
+      "name": "NetEase",
+      "count": 2,
+      "verified": true
+    },
+    {
+      "name": "SumUp",
+      "count": 2,
+      "verified": true
+    },
+    {
+      "name": "Tanso-Technologies",
+      "count": 2,
+      "verified": true
+    },
+    {
+      "name": "[SPAWN] Audio",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "4rays",
+      "count": 1,
       "verified": true
     },
     {
@@ -69,7 +114,7 @@
       "verified": true
     },
     {
-      "name": "Aesir-Tecnologia",
+      "name": "Aesircodeworks",
       "count": 1,
       "verified": true
     },
@@ -109,7 +154,17 @@
       "verified": false
     },
     {
+      "name": "Air Matters Network Pty",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Al Salam Bank",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Alecrim",
       "count": 1,
       "verified": true
     },
@@ -119,7 +174,22 @@
       "verified": true
     },
     {
+      "name": "ALM Services",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Altman Software Design",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Amanotes",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Anaphase-Helix",
       "count": 1,
       "verified": true
     },
@@ -149,6 +219,11 @@
       "verified": true
     },
     {
+      "name": "ANZx",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "App-Learning",
       "count": 1,
       "verified": true
@@ -161,11 +236,15 @@
     {
       "name": "Apple",
       "count": 1,
-      "verified": false,
-      "manual": true
+      "verified": true
     },
     {
       "name": "ApptitudeLabs",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Arcademyinc",
       "count": 1,
       "verified": true
     },
@@ -180,14 +259,34 @@
       "verified": true
     },
     {
+      "name": "Assaia",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Atlan",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Atlassian",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Aullido",
       "count": 1,
       "verified": false
     },
     {
-      "name": "Axiom0",
+      "name": "Automattic",
       "count": 1,
-      "verified": false
+      "verified": true
+    },
+    {
+      "name": "AwaitQuality",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Axon",
@@ -200,12 +299,47 @@
       "verified": true
     },
     {
+      "name": "Bayer",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Bb-Applications",
       "count": 1,
       "verified": false
     },
     {
+      "name": "BcoffeeDev",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Be the Max",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "BENM.AT",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "BentleySystems",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Bing-Plugins",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "BioforestChain",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "BITCLOUD",
       "count": 1,
       "verified": false
     },
@@ -230,6 +364,21 @@
       "verified": true
     },
     {
+      "name": "Blue Pill Software",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Bobit",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Bonheur-Guild",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Booking.com",
       "count": 1,
       "verified": true
@@ -240,9 +389,19 @@
       "verified": false
     },
     {
-      "name": "Broadcom",
+      "name": "Branding.lab",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Bravo Creative",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Bravo6",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "BSHK.APP",
@@ -255,19 +414,24 @@
       "verified": false
     },
     {
+      "name": "Burt.K",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Bybeit",
       "count": 1,
       "verified": false
     },
     {
-      "name": "Bytea-Ltd",
-      "count": 1,
-      "verified": true
-    },
-    {
       "name": "C6bank.Com.Br",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Cadence Design Systems",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Cake Labs",
@@ -276,6 +440,11 @@
     },
     {
       "name": "Cash App",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Catalysts",
       "count": 1,
       "verified": true
     },
@@ -300,6 +469,11 @@
       "verified": true
     },
     {
+      "name": "ClassPass",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "ClearScore",
       "count": 1,
       "verified": true
@@ -308,6 +482,16 @@
       "name": "Cloudflare",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "CloudQuest",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "CMB",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Cmondary",
@@ -325,7 +509,22 @@
       "verified": true
     },
     {
+      "name": "Cogity",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Comcast",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Conduitxyz",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Contentful",
       "count": 1,
       "verified": true
     },
@@ -355,7 +554,17 @@
       "verified": false
     },
     {
+      "name": "Csprinkels",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Cuedesk",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Cursor",
       "count": 1,
       "verified": true
     },
@@ -380,9 +589,19 @@
       "verified": true
     },
     {
+      "name": "Databio",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "DeepAgent",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Deepnetworkgmbh",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Dehner",
@@ -396,6 +615,11 @@
     },
     {
       "name": "Deltalytix",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Denis Malolepszy Software Engineering",
       "count": 1,
       "verified": false
     },
@@ -415,9 +639,24 @@
       "verified": true
     },
     {
+      "name": "Dexcom-Inc",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "DHT-AI-Studio",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Digitalchurch",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Digitec Galaxus AG",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "DML",
@@ -440,6 +679,16 @@
       "verified": false
     },
     {
+      "name": "Drishtilabs",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "DropoutCapital",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Drunkcoding.Net",
       "count": 1,
       "verified": false
@@ -450,14 +699,44 @@
       "verified": false
     },
     {
-      "name": "EA Sports",
+      "name": "Dvirdd",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Easysoft",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Ecwid",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Edwards & Edwards Consulting",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Eftours",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Eight-State",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Eirr Medical",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Ekinplace",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Elao",
@@ -471,6 +750,26 @@
     },
     {
       "name": "Empruntemontoutou",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Enmotech",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Entri.App",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "EpicGames",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Evolution-Gaming",
       "count": 1,
       "verified": true
     },
@@ -535,6 +834,11 @@
       "verified": false
     },
     {
+      "name": "Futuresearch.Ai",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Gbmcode",
       "count": 1,
       "verified": true
@@ -546,6 +850,11 @@
     },
     {
       "name": "Geminilabs",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Gentle-Art-Technologies",
       "count": 1,
       "verified": true
     },
@@ -562,7 +871,8 @@
     {
       "name": "GitHub",
       "count": 1,
-      "verified": true
+      "verified": false,
+      "manual": true
     },
     {
       "name": "Glee-Education",
@@ -590,6 +900,16 @@
       "verified": true
     },
     {
+      "name": "Gradle",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Grannet",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Gridaco",
       "count": 1,
       "verified": true
@@ -600,7 +920,12 @@
       "verified": false
     },
     {
-      "name": "H2G Lab",
+      "name": "Gxmzuai",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Gxsdzy",
       "count": 1,
       "verified": true
     },
@@ -610,7 +935,27 @@
       "verified": true
     },
     {
+      "name": "Halo Analitica",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Health at Home",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "HiHuman",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Hikeorg",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "hiyoriOS",
       "count": 1,
       "verified": true
     },
@@ -625,6 +970,11 @@
       "verified": true
     },
     {
+      "name": "Hurtigruten",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Hyundai AutoEver",
       "count": 1,
       "verified": false
@@ -633,6 +983,16 @@
       "name": "Ibotta",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Ice-Lab",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "IDE-JETRO",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Iftechio",
@@ -650,7 +1010,17 @@
       "verified": false
     },
     {
+      "name": "ImpulsoGov",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Imtoken",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "IndiePaw",
       "count": 1,
       "verified": true
     },
@@ -660,7 +1030,17 @@
       "verified": true
     },
     {
+      "name": "Inflearn",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Infoguard AG",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Infomaniak 🇨🇭",
       "count": 1,
       "verified": true
     },
@@ -670,7 +1050,7 @@
       "verified": false
     },
     {
-      "name": "Instacart",
+      "name": "Inspire AI",
       "count": 1,
       "verified": true
     },
@@ -680,9 +1060,19 @@
       "verified": true
     },
     {
+      "name": "Interactivethings",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "iQuSong",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Isnom",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "IT9 Lab",
@@ -690,14 +1080,14 @@
       "verified": true
     },
     {
-      "name": "Itsrever",
+      "name": "Iterative-Computer",
       "count": 1,
       "verified": true
     },
     {
-      "name": "JCC",
+      "name": "JAMSTEC",
       "count": 1,
-      "verified": false
+      "verified": true
     },
     {
       "name": "Joinmassive",
@@ -710,12 +1100,27 @@
       "verified": true
     },
     {
+      "name": "KappaSigmaMu",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Karrot",
       "count": 1,
       "verified": true
     },
     {
+      "name": "Karumi-Inc",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Keel",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "KEMRI-Wellcome Trust Research Programme",
       "count": 1,
       "verified": false
     },
@@ -730,7 +1135,17 @@
       "verified": false
     },
     {
+      "name": "Kim-Company",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Kingpin-Apps",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Kintell",
       "count": 1,
       "verified": true
     },
@@ -760,9 +1175,29 @@
       "verified": false
     },
     {
+      "name": "konciergeMD",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Kontext",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Krafton-Ai",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Kucedr",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "kW Engineering",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "LA-CRUZ",
@@ -780,14 +1215,19 @@
       "verified": true
     },
     {
-      "name": "Leaf",
+      "name": "Laravolt",
       "count": 1,
       "verified": true
     },
     {
-      "name": "League",
+      "name": "Lazco-Corporation",
       "count": 1,
-      "verified": false
+      "verified": true
+    },
+    {
+      "name": "Leaf",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Lenovo",
@@ -805,11 +1245,6 @@
       "verified": true
     },
     {
-      "name": "Leukocyte-Lab",
-      "count": 1,
-      "verified": true
-    },
-    {
       "name": "Levco",
       "count": 1,
       "verified": true
@@ -818,6 +1253,11 @@
       "name": "Libertex",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "LibertyOS-Development",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "LightYourWay",
@@ -840,7 +1280,27 @@
       "verified": false
     },
     {
+      "name": "Loliart-Lae",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Loyal-Labs",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Lp-Mktplatform",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "LTW",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Makinda-Jackson",
       "count": 1,
       "verified": true
     },
@@ -865,9 +1325,14 @@
       "verified": true
     },
     {
-      "name": "MaxRemyDev",
+      "name": "Mapsea",
       "count": 1,
-      "verified": true
+      "verified": false
+    },
+    {
+      "name": "Marketing Electrónico SEOSEM",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Mayflower",
@@ -880,9 +1345,19 @@
       "verified": true
     },
     {
-      "name": "Meta",
+      "name": "MemoDB",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Menezis",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Meogic",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "MgxIO",
@@ -900,14 +1375,19 @@
       "verified": true
     },
     {
+      "name": "Milestone.pt",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "MintySites",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Miru-Project",
       "count": 1,
       "verified": true
-    },
-    {
-      "name": "Moba",
-      "count": 1,
-      "verified": false
     },
     {
       "name": "MobiDev",
@@ -915,7 +1395,22 @@
       "verified": true
     },
     {
+      "name": "Mobiuspace",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "ModalAMS",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Moebis",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "MoFang Technology Co.",
       "count": 1,
       "verified": false
     },
@@ -935,12 +1430,22 @@
       "verified": true
     },
     {
+      "name": "Moon",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "MoonActive",
       "count": 1,
       "verified": true
     },
     {
       "name": "Mvstgmbh",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "NAITIVEAI",
       "count": 1,
       "verified": true
     },
@@ -955,19 +1460,49 @@
       "verified": true
     },
     {
+      "name": "Namidaco",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Narga",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Narra-Sa",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Netlight",
       "count": 1,
       "verified": true
     },
     {
-      "name": "NHN",
+      "name": "Netra Studio",
       "count": 1,
-      "verified": true
+      "verified": false
+    },
+    {
+      "name": "Nexus",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Nice",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Nilenso",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Njxzc",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Northern Labs",
@@ -985,12 +1520,12 @@
       "verified": false
     },
     {
-      "name": "NVIDIA",
+      "name": "Obiexhq",
       "count": 1,
       "verified": true
     },
     {
-      "name": "Obiexhq",
+      "name": "Octiplex",
       "count": 1,
       "verified": true
     },
@@ -1020,12 +1555,27 @@
       "verified": true
     },
     {
+      "name": "OPC",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "OpenArt",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "OPPO",
       "count": 1,
       "verified": true
     },
     {
       "name": "Oracle",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Orchid Games",
       "count": 1,
       "verified": true
     },
@@ -1038,6 +1588,11 @@
       "name": "Outdoorsy",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "PAR Retail",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Paramount",
@@ -1055,7 +1610,47 @@
       "verified": true
     },
     {
+      "name": "Peak",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Peak-Innovation-Studios",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Piano",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Piql",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Pismo-Foss",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "PixelKraft",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Planckunits",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "PlayHQ",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Playtag",
       "count": 1,
       "verified": false
     },
@@ -1075,9 +1670,19 @@
       "verified": false
     },
     {
+      "name": "PolkadotEducation",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Polyphonic",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Polytechnique Montréal",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Poweredbyanons",
@@ -1110,6 +1715,21 @@
       "verified": true
     },
     {
+      "name": "PrismaFox",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "ProgramThink",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "PROGRESS-VISION",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Prometis Lab",
       "count": 1,
       "verified": false
@@ -1120,7 +1740,38 @@
       "verified": false
     },
     {
+      "name": "PΛИDΘX Project",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "QuorumUS",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Rakuten",
+      "count": 1,
+      "verified": false,
+      "manual": true
+    },
+    {
+      "name": "Raleva",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Rapls Works",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Rayomqio",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "ReallyRobert.com",
       "count": 1,
       "verified": false
     },
@@ -1128,6 +1779,11 @@
       "name": "Recursive Labs",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Red Ackee Software",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Reddit",
@@ -1145,12 +1801,42 @@
       "verified": true
     },
     {
+      "name": "Reebuild",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Rememberscom",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Reso Studio",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Revealize",
       "count": 1,
       "verified": false
     },
     {
+      "name": "Roblox",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Rock Bund Capital",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Rokid",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Rooms To Go",
       "count": 1,
       "verified": false
     },
@@ -1161,6 +1847,16 @@
     },
     {
       "name": "Run2biz",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "S-Network",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Sageleaf Systems",
       "count": 1,
       "verified": true
     },
@@ -1181,6 +1877,16 @@
     },
     {
       "name": "SAP",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Sayurbox",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Sazabi",
       "count": 1,
       "verified": true
     },
@@ -1215,6 +1921,11 @@
       "verified": true
     },
     {
+      "name": "SenseTime",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Sergas",
       "count": 1,
       "verified": false
@@ -1225,9 +1936,19 @@
       "verified": true
     },
     {
+      "name": "Ship.Cars",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Shopify",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Shortcut ApS",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "ShortPoint",
@@ -1245,12 +1966,37 @@
       "verified": false
     },
     {
+      "name": "Singularquest",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Sipgate",
       "count": 1,
       "verified": true
     },
     {
+      "name": "SIVAKOV.TECH",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "SKALE Labs",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Skyborn",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Slack",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "SLC3",
       "count": 1,
       "verified": true
     },
@@ -1300,12 +2046,42 @@
       "verified": true
     },
     {
+      "name": "Solana-Foundation",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Sony Music",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Soramitsu Khmer",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "SoulShell",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Sourcefuse",
       "count": 1,
       "verified": true
     },
     {
+      "name": "SpaceXSI",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Spotify",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Sqli",
       "count": 1,
       "verified": true
     },
@@ -1325,6 +2101,11 @@
       "verified": true
     },
     {
+      "name": "Substance Lab",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "SÜDVERS",
       "count": 1,
       "verified": true
@@ -1335,7 +2116,17 @@
       "verified": true
     },
     {
+      "name": "Sweedly",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Syntachiato",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Tangle-Network",
       "count": 1,
       "verified": true
     },
@@ -1365,11 +2156,6 @@
       "verified": false
     },
     {
-      "name": "TechnoNext",
-      "count": 1,
-      "verified": true
-    },
-    {
       "name": "Tekalib",
       "count": 1,
       "verified": true
@@ -1380,7 +2166,27 @@
       "verified": false
     },
     {
+      "name": "Telop",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Terracotta",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Tessera42-Ltd",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Test Double",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Thaw-App",
       "count": 1,
       "verified": true
     },
@@ -1410,6 +2216,11 @@
       "verified": true
     },
     {
+      "name": "Thomann.io",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Thomas Bechu's",
       "count": 1,
       "verified": false
@@ -1430,9 +2241,19 @@
       "verified": false
     },
     {
+      "name": "Tokopedia",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Treatmyocd",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Trifect Media",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Triumph-Tech",
@@ -1441,6 +2262,11 @@
     },
     {
       "name": "Tulbox Consulting",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Turf",
       "count": 1,
       "verified": false
     },
@@ -1455,6 +2281,21 @@
       "verified": true
     },
     {
+      "name": "Ultra Heavy",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Under Armour",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "US-Bangla Airlines",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Uzinfocom-Org",
       "count": 1,
       "verified": true
@@ -1463,6 +2304,11 @@
       "name": "Vault-Innovation",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Verbit",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "Vercel",
@@ -1490,12 +2336,32 @@
       "verified": false
     },
     {
+      "name": "Visa",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Visban",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Viva Republica (Toss)",
       "count": 1,
       "verified": false
     },
     {
+      "name": "Vjhio",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "VML",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Vstorm-Co",
       "count": 1,
       "verified": true
     },
@@ -1505,12 +2371,67 @@
       "verified": false
     },
     {
+      "name": "Wallee Group AG",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Wan-an-Midnight",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Watosoft AG",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "Wave",
       "count": 1,
       "verified": false
     },
     {
+      "name": "Wbx1",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Webmark",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "WecoAI",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Weconnect-Ai",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Weinventing",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Wep",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "WERI UOG",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "WhatIfRepo",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "WikiTeq",
       "count": 1,
       "verified": true
     },
@@ -1525,12 +2446,12 @@
       "verified": false
     },
     {
-      "name": "WuBa",
+      "name": "WPPOpen",
       "count": 1,
       "verified": true
     },
     {
-      "name": "X-Labs-Myid",
+      "name": "WuBa",
       "count": 1,
       "verified": true
     },
@@ -1538,6 +2459,11 @@
       "name": "Xiaomi",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "XYP3RN",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "YAFOCAPITAL",
@@ -1550,7 +2476,17 @@
       "verified": true
     },
     {
+      "name": "Yazboz",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Yearn",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Yet-Another-Yannou-Build",
       "count": 1,
       "verified": true
     },
@@ -1560,12 +2496,17 @@
       "verified": false
     },
     {
-      "name": "Yojiomade",
+      "name": "Yistars",
       "count": 1,
       "verified": true
     },
     {
       "name": "Yonical",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "YZU",
       "count": 1,
       "verified": true
     },
@@ -1580,12 +2521,62 @@
       "verified": true
     },
     {
+      "name": "Zillow",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "ZIT-BB",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Zone24x7",
+      "count": 1,
+      "verified": true
     }
   ],
   "schools": [
+    {
+      "name": "Harvard University",
+      "count": 3,
+      "verified": false
+    },
+    {
+      "name": "Beijing Institute of Technology",
+      "count": 2,
+      "verified": false
+    },
+    {
+      "name": "Beijing University of Posts and Telecommunications",
+      "count": 2,
+      "verified": false
+    },
+    {
+      "name": "Chongqing University of Posts and Telecommunications",
+      "count": 2,
+      "verified": false
+    },
+    {
+      "name": "ETH Zurich",
+      "count": 2,
+      "verified": true
+    },
+    {
+      "name": "Nanjing University of Posts and Telecommunications (NJUPT)",
+      "count": 2,
+      "verified": false
+    },
+    {
+      "name": "Peking University",
+      "count": 2,
+      "verified": true
+    },
+    {
+      "name": "University of Electronic Science and Technology of China",
+      "count": 2,
+      "verified": false
+    },
     {
       "name": "Ashesi University",
       "count": 1,
@@ -1597,7 +2588,17 @@
       "verified": false
     },
     {
-      "name": "Beijing Institute of Technology",
+      "name": "Austrian Academy of Sciences",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Berlin Institute of Health at Charité University Medicine Berlin",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Brno university of technology",
       "count": 1,
       "verified": false
     },
@@ -1607,12 +2608,17 @@
       "verified": true
     },
     {
-      "name": "Chongqing University of Posts and Telecommunications",
+      "name": "Carnegie Mellon University",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "COLLEGE JOFFRE",
       "count": 1,
       "verified": false
     },
     {
-      "name": "COLLEGE JOFFRE",
+      "name": "Cologne University of Music",
       "count": 1,
       "verified": false
     },
@@ -1627,7 +2633,7 @@
       "verified": true
     },
     {
-      "name": "EPFL",
+      "name": "Duke University",
       "count": 1,
       "verified": true
     },
@@ -1643,11 +2649,6 @@
     },
     {
       "name": "Harvard Medical School",
-      "count": 1,
-      "verified": false
-    },
-    {
-      "name": "Harvard University",
       "count": 1,
       "verified": false
     },
@@ -1672,6 +2673,11 @@
       "verified": true
     },
     {
+      "name": "Indian Institute of Science (IISc)",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "INRIA",
       "count": 1,
       "verified": true
@@ -1692,9 +2698,24 @@
       "verified": false
     },
     {
+      "name": "Kanazawa University",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Kent State University",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "King's College London",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Københavns Universitet",
+      "count": 1,
+      "verified": false
     },
     {
       "name": "KTH",
@@ -1707,6 +2728,11 @@
       "verified": false
     },
     {
+      "name": "MIT Lincoln Laboratory",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "N-HighScool",
       "count": 1,
       "verified": false
@@ -1717,9 +2743,24 @@
       "verified": false
     },
     {
+      "name": "Nanyang Technological University (NTU)",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "National Taiwan University of Science and Technology Student",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "National Tsing Hua University",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "National University of Singapore",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "NIT Ibaraki College",
@@ -1727,14 +2768,19 @@
       "verified": false
     },
     {
-      "name": "Peking University",
-      "count": 1,
-      "verified": true
-    },
-    {
       "name": "PolyU",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "RationAI research group, Masaryk University",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Rice University",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "Rijksuniversiteit Groningen",
@@ -1757,17 +2803,47 @@
       "verified": true
     },
     {
+      "name": "Shanghai Jiao Tong University",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Shanghai Jiao Tong University, SJTU",
       "count": 1,
       "verified": false
     },
     {
-      "name": "Shanghai Normal University",
+      "name": "Shanghai Ocean University",
       "count": 1,
       "verified": true
     },
     {
-      "name": "Sup Galilée - USPN",
+      "name": "Shibaura Institute of Technology",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "SNU CSE",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Southeast University",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Southwest University",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Sup Galilée",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Tarrant County College",
       "count": 1,
       "verified": false
     },
@@ -1777,14 +2853,44 @@
       "verified": false
     },
     {
+      "name": "The Hong Kong Polytechnic University",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "The Ohio State University Comprehensive Cancer Center",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "The University of Hong Kong",
       "count": 1,
       "verified": true
     },
     {
+      "name": "The University of Melbourne",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "The University of New South Wales",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "The University of Texas at Dallas",
       "count": 1,
       "verified": false
+    },
+    {
+      "name": "Tokyo Institute of Technology",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Tsinghua University",
+      "count": 1,
+      "verified": true
     },
     {
       "name": "UFG",
@@ -1802,6 +2908,11 @@
       "verified": false
     },
     {
+      "name": "Università Vita-Salute S. Raffaele",
+      "count": 1,
+      "verified": false
+    },
+    {
       "name": "University of California Santa Cruz",
       "count": 1,
       "verified": false
@@ -1812,7 +2923,17 @@
       "verified": false
     },
     {
+      "name": "University of Connecticut",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "University of Michigan",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "University of Minnesota",
       "count": 1,
       "verified": true
     },
@@ -1822,9 +2943,39 @@
       "verified": true
     },
     {
+      "name": "University of Tsukuba",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "USTC",
+      "count": 1,
+      "verified": false
+    },
+    {
+      "name": "Xi'an Jiaotong University",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Xinjiang University",
+      "count": 1,
+      "verified": true
+    },
+    {
+      "name": "Yanshan University",
+      "count": 1,
+      "verified": true
+    },
+    {
       "name": "Zhejiang University",
       "count": 1,
       "verified": true
+    },
+    {
+      "name": "Zurich University of Applied Sciences",
+      "count": 1,
+      "verified": false
     }
   ]
 }

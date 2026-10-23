@@ -61,15 +61,20 @@ const MANUAL = [
   // visible in stargazer data — do not delete expecting a regeneration to
   // bring it back.
   { name: "Apple", education: false },
+  // Both were in the stargazer data until the 2026-10-23 sync, then dropped out
+  // (the people unstarred or changed their profile). Kept on Fauzaan's say-so,
+  // 2026-10-23, so the logo strip doesn't lose them.
+  { name: "GitHub", education: false },
+  { name: "Rakuten", education: false },
 ];
 
 /** Profile values that name a status, not an employer. */
 const NOT_A_COMPANY =
-  /^(none|n\/a|null|null null|undefined|-|student|students?|self|#self|self-?employed|personal|me|freelance|freelancer|freelancing|independent|indie|unemployed|jobless|home|earth|world|internet|web3|crypto|stealth|stealth startup|remote|various|multiple|open to (work|new opportunities|opportunities)|looking for (a )?job|developer|developer \/ engineer|engineer|programmer|10x company|백수|ceo|cto|cio|ciso|coo|founder|co-?founder|freelance ios and web developer|it consulting & partner)$/i;
+  /^(none|n\/a|null|null null|undefined|-|student|students?|self|#self|self-?employed|personal|me|freelance|freelancer|freelancing|independent|indie|unemployed|jobless|home|earth|world|internet|web3|crypto|stealth|stealth startup|remote|various|multiple|open to (work|new opportunities|opportunities)|looking for (a )?job|developer|developer \/ engineer|engineer|programmer|10x company|school|london|world wide web|keep building\.*|indie developer|awk|hacker company|prev|백수|ceo|cto|cio|ciso|coo|founder|co-?founder|freelance ios and web developer|it consulting & partner)$/i;
 
 /** Universities, colleges and public research institutes get their own list. */
 const EDUCATION =
-  /univers|universidade|università|universidad|college|institute of technology|\bschool\b|\bhochschule\b|\bcnrs\b|\binria\b|fraunhofer|academy|\bkaist\b|\bepfl\b|\bkth\b|\biit\b|\bmit\b|\bbupt\b|\bsjtu\b|\bpku\b|polytechnic|rijksuniversiteit|politecnico|\.edu(\.[a-z]{2})?$|^(sdu|polyu|hqu|ufg|nit\b|epitech|sup galilée|n-highscool|ashesi)/i;
+  /univers|universidade|università|universidad|college|institute of technology|\bschool\b|\bhochschule\b|\bcnrs\b|\binria\b|fraunhofer|academy|\bkaist\b|\bepfl\b|\bkth\b|\biit\b|\bmit\b|\bnjupt\b|\bustc\b|\biisc\b|\bsnu\b|lincoln laboratory|\beth z(u|ü)rich\b|\bbupt\b|\bsjtu\b|\bpku\b|polytechnic|rijksuniversiteit|politecnico|\.edu(\.[a-z]{2})?$|^(sdu|polyu|hqu|ufg|nit\b|epitech|sup galilée|n-highscool|ashesi)/i;
 
 /** Casing the brands own, which a naive title-case would mangle. */
 const CANONICAL = new Map(
@@ -84,7 +89,7 @@ const CANONICAL = new Map(
     "Hyundai AutoEver", "Software Mansion", "CyberAgent", "Cookpad", "Prusa Research",
     "Karrot", "Sea (Shopee)", "The Atlantic", "Mindvalley", "Automattic", "Twilio",
     "Paramount", "Broadcom", "Lenovo", "Meituan", "China Telecom", "CITIC Bank",
-    "Arm", "Oracle", "Samsung", "Spotify", "Reddit", "Docker", "Notion", "Cursor",
+    "Arm", "Oracle", "NetEase", "SumUp", "ClassPass", "Atlassian", "Samsung", "Spotify", "Reddit", "Docker", "Notion", "Cursor",
     "Vercel", "Shopify", "Meta", "Yandex", "Instacart", "Mapbox", "Flipkart",
     "Wipro", "Infosys", "Deloitte", "Accenture", "Sanofi", "Bosch", "Siemens",
   ].map((n) => [n.toLowerCase().replace(/[^a-z0-9]/g, ""), n]),
@@ -109,6 +114,24 @@ const ALIASES = new Map(
     "chinatelecommeituanbosch": "Meituan",
     "cashappblocksquare": "Block",
     "vercelrecursivelabs": "Vercel",
+    "vercellabs": "Vercel",
+    "recusivelabs": "Recursive Labs",
+    "alibabagroup": "Alibaba",
+    "antgroup": "Ant Group",
+    "oceanbaseantgroup": "Ant Group",
+    "slackhq": "Slack",
+    "underarmour": "Under Armour",
+    "bayergroup": "Bayer",
+    "bayerint": "Bayer",
+    "ethzurich": "ETH Zurich",
+    "ethzrich": "ETH Zurich",
+    "mitll": "MIT Lincoln Laboratory",
+    "iiscbanglore": "Indian Institute of Science (IISc)",
+    "njupt": "Nanjing University of Posts and Telecommunications (NJUPT)",
+    "njuptnanjinguniversityofpostsandtelecommunications":
+      "Nanjing University of Posts and Telecommunications (NJUPT)",
+    "beijinguniversityofpostandtelecomunications":
+      "Beijing University of Posts and Telecommunications",
     "facebook": "Meta",
     "easports": "EA Sports",
     "societegenerale": "Société Générale",
@@ -124,6 +147,9 @@ const ALIASES = new Map(
  */
 const split = (raw) =>
   raw
+    // A URL would be cut apart on its slashes into "http" and "www.example.com)"
+    // fragments, so drop it first; the name beside it, if any, survives.
+    .replace(/\(?\s*https?:\/\/[^\s)]*\)?/gi, " ")
     .split(/\s*(?:->|→|;|\||\/|,\s*(?=@))\s*|\s+(?=@)/)
     .map((part) => part.replace(/\s+/g, " ").trim())
     .filter(Boolean);
@@ -283,7 +309,7 @@ for (const { company, orgs } of raw) {
     if (seen.has(k)) continue;
     seen.add(k);
 
-    const bucket = EDUCATION.test(cleaned) ? schools : companies;
+    const bucket = EDUCATION.test(cleaned) || EDUCATION.test(name) ? schools : companies;
     const prev = bucket.get(k);
     bucket.set(k, {
       name,
