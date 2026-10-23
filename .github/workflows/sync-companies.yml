@@ -1,0 +1,97 @@
+# Weekly refresh of src/data/companies.json from the stargazers of
+# pluk-inc/markdown-preview. Opens a pull request instead of committing to main:
+# every name in that file lands on the public /companies page, so a person
+# reviews the new ones (and any junk the filters missed) before they ship.
+name: Sync companies
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-companies
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # The script reads only public profile data, so the built-in token is
+      # enough. Its stderr (dropped accounts, dead handles) is kept for the PR.
+      - name: Regenerate companies.json
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm companies 2> >(tee sync.log >&2)
+
+      # LogoMarquee fails the build when a name on the strip has left the data.
+      # Run it here so that shows up on the PR, not on the next deploy.
+      - name: Check the build
+        id: build
+        continue-on-error: true
+        run: pnpm build
+
+      - name: Summarize changes
+        run: |
+          node -e '
+            const { execSync } = require("node:child_process");
+            const old = JSON.parse(execSync("git show HEAD:src/data/companies.json"));
+            const now = require("./src/data/companies.json");
+            const names = (d) => new Set([...d.companies, ...d.schools].map((c) => c.name));
+            const [before, after] = [names(old), names(now)];
+            const added = [...after].filter((n) => !before.has(n));
+            const removed = [...before].filter((n) => !after.has(n));
+            const lines = [
+              `Stars: ${old.stars} → ${now.stars}`,
+              `Companies: ${old.companies.length} → ${now.companies.length}, schools: ${old.schools.length} → ${now.schools.length}`,
+              "",
+              `**Added (${added.length}):** ${added.join(", ") || "none"}`,
+              "",
+              `**Removed (${removed.length}):** ${removed.join(", ") || "none"}`,
+            ];
+            require("node:fs").writeFileSync("summary.md", lines.join("\n") + "\n");
+          '
+          {
+            cat summary.md
+            echo
+            if [ "${{ steps.build.outcome }}" = "failure" ]; then
+              echo "> [!WARNING]"
+              echo "> The build fails. A name on the logo strip is probably no longer in the data — see the run log."
+              echo
+            fi
+            echo "Review the added names before merging. Bump STAR_CLAIM in src/components/LogoMarquee.astro when the stars clear the next round number."
+            echo
+            echo '<details><summary>Script log</summary>'
+            echo
+            echo '```'
+            cat sync.log
+            echo '```'
+            echo '</details>'
+          } > pr-body.md
+          rm summary.md sync.log
+
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/sync-companies
+          add-paths: src/data/companies.json
+          commit-message: Sync companies from GitHub stargazers
+          title: Sync companies from GitHub stargazers
+          body-path: pr-body.md
+          delete-branch: true
